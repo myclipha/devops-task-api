@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-task-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-task-api
+  template:
+    metadata:
+      labels:
+        app: devops-task-api
+    spec:
+      containers:
+        - name: devops-task-api
+          image: devops-task-api:2.5
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: APP_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: devops-task-api-config
+                  key: APP_ENV
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: devops-task-api-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: devops-task-api-secret
+                  key: DB_PASSWORD

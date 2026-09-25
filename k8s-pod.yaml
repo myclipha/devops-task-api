@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: devops-task-api
+spec:
+  containers:
+    - name: devops-task-api
+      image: devops-task-api:1.0
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8000
