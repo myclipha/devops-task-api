@@ -1,11 +1,15 @@
 import os
 
+
+from prometheus_fastapi_instrumentator import Instrumentator
 from fastapi import FastAPI
 from pydantic import BaseModel
 from pymongo import MongoClient
 
-app = FastAPI(title="DevOps Task API")
 
+
+app = FastAPI(title="DevOps Task API")
+Instrumentator().instrument(app).expose(app)
 class Task(BaseModel):
     id: int
     title: str
