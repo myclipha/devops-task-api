@@ -5,3 +5,18 @@ __pycache__/
 .env
 .env.*
 k8s-secret.yaml
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.tfstate.lock.info
+<<'EOF'
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.tfstate.lock.info
+EOF
+>>
