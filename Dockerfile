@@ -12,7 +12,7 @@ COPY app ./app
 
 RUN chown -R appuser:appuser /app
 
-USER appuser
+USER 1000:1000
 
 EXPOSE 8000
 
