@@ -12,8 +12,18 @@ spec:
       labels:
         app: devops-task-api
     spec:
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: devops-task-api
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
           image: ghcr.io/myclipha/devops-task-api:b9a0bb755b378359204636492a97e957c449f96b
           imagePullPolicy: IfNotPresent
           ports:
