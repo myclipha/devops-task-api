@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: mongodb-network-policy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: mongodb
+
+  policyTypes:
+    - Ingress
+
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: devops-task-api
+      ports:
+        - protocol: TCP
+          port: 27017
+
