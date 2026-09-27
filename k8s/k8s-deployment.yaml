@@ -24,7 +24,7 @@ spec:
             capabilities:
               drop:
                 - ALL
-          image: ghcr.io/myclipha/devops-task-api:c1f9b80dc80b3bbbab9e6be2aa8407d5c7c91e1a
+          image: ghcr.io/myclipha/devops-task-api:a89ffbfd8f32a34e650b3d6fef3083600d90b4a7
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
