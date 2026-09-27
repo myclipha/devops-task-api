@@ -10,7 +10,8 @@ spec:
     repoURL: https://github.com/myclipha/devops-task-api.git
     targetRevision: main
     path: k8s
-
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: default
